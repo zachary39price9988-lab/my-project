@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vairi - Trust Through Verified Identity</title>
+  <meta name="description" content="Build authentic connections with identity verification that prioritizes clarity, trust, and user presence.">
+  <meta name="author" content="Vairi">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f5f5f5;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2a7ae2;
+    }
+    #trust-bar-container {
+      width: 100%;
+      background: #ddd;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    #trust-bar {
+      height: 20px;
+      width: 85%;
+      background: #2a7ae2;
+      border-radius: 5px;
+      transition: width 0.5s;
+    }
+    #presence {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+    #ledger {
+      margin-top: 20px;
+      font-family: monospace;
+      font-size: 14px;
+      color: #444;
+    }
+    #secret-message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      background: #ffe08a;
+      border-radius: 8px;
+      font-weight: bold;
+      text-align: center;
+    }
+    #toggle-theme {
+      margin-top: 20px;
+      padding: 10px 15px;
+      border: none;
+      background: #2a7ae2;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #toggle-theme:hover {
+      background: #1a5ac2;
+    }
+
+    /* Dark Mode Styles */
+    body.dark {
+      background: #121212;
+      color: #eee;
+    }
+    body.dark .container {
+      background: #1e1e1e;
+      color: #eee;
+    }
+    body.dark #ledger {
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Vairi - Trust System</h1>
+    <p id="trust-level">85% Trust Score</p>
+    <div id="trust-bar-container">
+      <div id="trust-bar" style="width:85%"></div>
+    </div>
+    <p id="presence">🟢 Live presence verified: User active</p>
+    <div id="ledger">Trust Ledger will update here...</div>
+    <div id="secret-message">🎉 Secret Feature Activated! 🎉</div>
+    <button id="toggle-theme">🌙 Toggle Dark Mode</button>
+  </div>
+
+  <script>
+    // Proof-of-Life Pulse
+    function pulseEffect() {
+      const el = document.getElementById("presence");
+      el.innerHTML = el.innerHTML.replace(/(🟢 Live presence verified: .*)/, "$1 | ❤️");
+      setTimeout(() => {
+        el.innerHTML = el.innerHTML.replace("❤️", "💚");
+      }, 500);
+    }
+    setInterval(pulseEffect, 2000);
+
+    // Trust Ledger
+    const ledger = [];
+    function updateLedger(score) {
+      const now = new Date().toLocaleTimeString();
+      ledger.unshift(`${now}: Trust Score → ${score}%`);
+      if (ledger.length > 3) ledger.pop();
+      document.getElementById("ledger").innerHTML = ledger.join("<br>");
+    }
+
+    // Trust Score Updates
+    setInterval(() => {
+      const trustBar = document.getElementById("trust-bar");
+      const trustLevel = document.getElementById("trust-level");
+      const currentWidth = parseInt(trustBar.style.width);
+      const variation = Math.floor(Math.random() * 6) - 3;
+      const newLevel = Math.max(70, Math.min(100, currentWidth + variation));
+
+      trustBar.style.width = newLevel + "%";
+      trustLevel.textContent = newLevel + "% Trust Score";
+      updateLedger(newLevel);
+    }, 5000);
+
+    // Konami Code Easter Egg
+    const secretMessage = document.getElementById("secret-message");
+    let konamiSequence = [38,38,40,40,37,39,37,39,66,65];
+    let konamiIndex = 0;
+
+    document.addEventListener("keydown", function(e) {
+      if (e.keyCode === konamiSequence[konamiIndex]) {
+        konamiIndex++;
+        if (konamiIndex === konamiSequence.length) {
+          secretMessage.style.display = "block";
+          secretMessage.innerHTML = "🎉 Secret Feature Activated! 🎉";
+          konamiIndex = 0;
+        }
+      } else {
+        konamiIndex = 0;
+      }
+    });
+
+    // Dark Mode Toggle
+    const toggleButton = document.getElementById("toggle-theme");
+    toggleButton.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      toggleButton.textContent = document.body.classList.contains("dark") 
+        ? "☀️ Toggle Light Mode" 
+        : "🌙 Toggle Dark Mode";
+    });
+  </script>
+</body>
+</html>

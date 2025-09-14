@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 225 15% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 225 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 225 15% 20%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 155 100% 94%;
+    --secondary-foreground: 155 100% 26%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 155 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 60%;
+
+    /* Vairi Brand Colors */
+    --trust-blue: 217 91% 60%;
+    --trust-blue-dark: 217 84% 52%;
+    --secure-green: 155 100% 50%;
+    --secure-green-light: 155 100% 94%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--trust-blue)), hsl(var(--trust-blue-dark)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--secure-green)), hsl(var(--trust-blue)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(210 20% 95%));
+    
+    /* Shadows */
+    --shadow-trust: 0 10px 30px -10px hsl(var(--trust-blue) / 0.3);
+    --shadow-secure: 0 10px 30px -10px hsl(var(--secure-green) / 0.2);
+    --shadow-elegant: 0 4px 20px -2px hsl(225 15% 20% / 0.1);
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 225 25% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 225 25% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 225 25% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 225 25% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 225 25% 12%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 155 100% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 225 25% 12%;
+    --input: 225 25% 12%;
+    --ring: 217 91% 60%;
+
+    /* Dark mode gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--trust-blue)), hsl(var(--trust-blue-dark)));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--secure-green)), hsl(var(--trust-blue)));
+    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(225 25% 4%));
+    
+    /* Dark mode shadows */
+    --shadow-trust: 0 10px 30px -10px hsl(var(--trust-blue) / 0.4);
+    --shadow-secure: 0 10px 30px -10px hsl(var(--secure-green) / 0.3);
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
